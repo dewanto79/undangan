@@ -12,6 +12,15 @@ const config: Config = {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+
+        my_bg_image: "url('/images/background.png')",
+        my_bg_image2: "url('/images/background2.png')",
+      },
+      fontFamily: {
+        inter: ["var(--font-inter)"],
+        lobster: ["var(--font-lobster-two)"],
+        euphoria: ["var(--font-euphoria_script)"],
+        montserrat: ["var(--font-montserrat)"],
       },
     },
   },

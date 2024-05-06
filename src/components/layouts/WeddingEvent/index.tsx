@@ -7,10 +7,10 @@ interface WeddingEventProps {
 }
 
 export default function WeddingEvent({ className }: WeddingEventProps) {
-  const [days, setDays] = useState<number>();
-  const [hours, setHours] = useState<number>();
-  const [minutes, setMinutes] = useState<number>();
-  const [seconds, setSeconds] = useState<number>();
+  const [days, setDays] = useState<number>(0);
+  const [hours, setHours] = useState<number>(0);
+  const [minutes, setMinutes] = useState<number>(0);
+  const [seconds, setSeconds] = useState<number>(0);
 
   let interval = useRef<NodeJS.Timeout>();
   const startTimer = () => {
@@ -49,60 +49,78 @@ export default function WeddingEvent({ className }: WeddingEventProps) {
   };
 
   useEffect(() => {
-    const interval = setInterval(() => getTime(), 1000);
+    const interval = setInterval(() => {
+      const time =
+        new Date("June 18, 2024 10:00:00").getTime() - new Date().getTime();
+
+      setDays(Math.floor(time / (1000 * 60 * 60 * 24)));
+      setHours(Math.floor((time / (1000 * 60 * 60)) % 24));
+      setMinutes(Math.floor((time / 1000 / 60) % 60));
+      setSeconds(Number(Math.floor((time / 1000) % 60)));
+      console.log(days, hours, minutes, seconds);
+    }, 1000);
     return () => clearInterval(interval);
   }, [seconds]);
 
   return (
-    <div className={`p-6 bg-white text-center`}>
+    <div className={`p-6 text-center`}>
       {/* Wedding Event */}
-      <div>
-        <div className={`font-lobster text-4xl`}>Wedding Event</div>
-        <div className={`mt-6`}>
-          <div className={`font-euphoria text-5xl`}>Selasa</div>
-          <div className={`font-inter font-bold text-4xl`}>18 . 06 . 2024</div>
+      <div className={`bg-white bg-opacity-50 rounded-lg py-6 px-4 `}>
+        <div>
+          <div className={`font-lobster text-4xl`}>Wedding Event</div>
+          <div className={`mt-6`}>
+            <div className={`font-euphoria text-5xl`}>Selasa</div>
+            <div className={`font-inter font-bold text-4xl`}>
+              18 . 06 . 2024
+            </div>
+          </div>
+        </div>
+
+        {/* Akad Nikah */}
+        <div className={`mt-4 font-montserrat`}>
+          <div className={`font-bold text-2xl`}>Akad Nikah</div>
+          <div className={``}>Pukul 10.00 WIB</div>
+        </div>
+
+        <div className={`h-20 w-[3px] bg-black mx-auto my-3`} />
+
+        {/* Resepsi Pernikahan */}
+        <div className={` font-montserrat`}>
+          <div className={`font-bold text-2xl`}>Resepsi Pernikahan</div>
+          <div>Pukul 11.00 s.d 17.00 WIB</div>
+        </div>
+
+        {/* Timer */}
+        <div className={`flex items-center justify-center gap-1 mt-7`}>
+          <div
+            className={`flex flex-col items-center justify-center p-4 drop shadow-lg border bg-white`}
+          >
+            <div className={`font-bold font-inter`}>{days}</div>
+            <div className={`italic font-inter text-xs`}>Hari</div>
+          </div>
+          <div
+            className={`flex flex-col items-center justify-center p-4 drop shadow-lg border bg-white`}
+          >
+            <div className={`font-bold font-inter`}>{hours}</div>
+            <div className={`italic font-inter text-xs`}>Jam</div>
+          </div>
+          <div
+            className={`flex flex-col items-center justify-center p-4 drop shadow-lg border bg-white`}
+          >
+            <div className={`font-bold font-inter`}>{minutes}</div>
+            <div className={`italic font-inter text-xs`}>Menit</div>
+          </div>
+          <div
+            className={`flex flex-col items-center justify-center p-4 drop shadow-lg border bg-white`}
+          >
+            <div className={`font-bold font-inter`}>{seconds}</div>
+            <div className={`italic font-inter text-xs`}>Detik</div>
+          </div>
         </div>
       </div>
 
-      {/* Akad Nikah */}
-      <div className={`mt-4 font-montserrat`}>
-        <div className={`font-bold text-2xl`}>Akad Nikah</div>
-        <div className={``}>Pukul 10.00 WIB</div>
-      </div>
-
-      {/* Resepsi Pernikahan */}
-      <div className={`mt-24 font-montserrat`}>
-        <div className={`font-bold text-2xl`}>Resepsi Pernikahan</div>
-        <div>Pukul 11.00 s.d 17.00 WIB</div>
-      </div>
-
-      {/* Timer */}
-      <div className={`flex items-center justify-center gap-3 mt-7`}>
-        <div
-          className={`flex flex-col items-center justify-center p-4 drop shadow-lg border`}
-        >
-          <div>{days}</div>
-          <div>hari</div>
-        </div>
-        <div
-          className={`flex flex-col items-center justify-center p-4 drop shadow-lg border`}
-        >
-          <div>{hours}</div>
-          <div>Jam</div>
-        </div>
-        <div
-          className={`flex flex-col items-center justify-center p-4 drop shadow-lg border`}
-        >
-          <div>{minutes}</div>
-          <div>Menit</div>
-        </div>
-        <div
-          className={`flex flex-col items-center justify-center p-4 drop shadow-lg border`}
-        >
-          <div>{days}</div>
-          <div>Detik</div>
-        </div>
-      </div>
+      {/* Event Location */}
+      
     </div>
   );
 }

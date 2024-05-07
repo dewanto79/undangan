@@ -24,7 +24,7 @@ export default function Carousel({ slides, className }: CarouselProps) {
   return (
     <div className={`overflow-hidden relative ${className}`}>
       <div
-        className={`flex transition ease-out duration-100 translate-x-[-${
+        className={`flex  transition ease-out duration-100 translate-x-[-${
           current * 100
         }%] `}
         style={{
@@ -34,7 +34,7 @@ export default function Carousel({ slides, className }: CarouselProps) {
         {slides?.map((rows, index) => (
           <Image
             key={index}
-            className={`w-full object-contain bg-white bg-opacity-50`}
+            className={`w-full object-contain bg-white bg-opacity-50 rounded-lg `}
             src={rows}
             alt=""
             width={500}

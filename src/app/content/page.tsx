@@ -3,6 +3,7 @@
 import Doa from "@/components/layouts/Doa";
 import EventLocation from "@/components/layouts/EventLocation";
 import GaleriFoto from "@/components/layouts/GaleriFoto";
+import KirimHadiah from "@/components/layouts/KirimHadiah";
 import Perkenalan from "@/components/layouts/Perkenalan";
 import UcapanDanDoa from "@/components/layouts/UcapanDanDoa";
 import WeddingEvent from "@/components/layouts/WeddingEvent";
@@ -27,6 +28,9 @@ export default function Content() {
       </section>
       <section>
         <UcapanDanDoa />
+      </section>
+      <section>
+        <KirimHadiah />
       </section>
     </div>
   );

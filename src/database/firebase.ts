@@ -26,12 +26,7 @@ const db = getFirestore(app);
 export { db };
 
 export async function addMessage(payload: AddMessage) {
-  if (
-    payload.name &&
-    payload.message &&
-    payload.isAttending &&
-    payload.imageId
-  ) {
+  if (payload.name && payload.message && payload.imageId) {
     try {
       await addDoc(collection(db, "messages"), {
         name: payload.name,
@@ -44,10 +39,10 @@ export async function addMessage(payload: AddMessage) {
       return true;
     } catch (error) {
       console.log(error);
-      return false;
+      throw new Error("Terdapat input yang kurang");
     }
   }
-  throw new Error("Data should not be empty");
+  throw new Error("Ada data yang kosong");
 }
 
 export async function getAllMessages() {

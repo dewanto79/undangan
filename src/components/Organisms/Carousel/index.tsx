@@ -2,7 +2,7 @@
 
 import { ArrowCircleLeft2, ArrowCircleRight2 } from "iconsax-react";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 interface CarouselProps {
   slides: string[];
@@ -21,12 +21,22 @@ export default function Carousel({ slides, className }: CarouselProps) {
     if (current === slides.length - 1) setCurrent(0);
     else setCurrent(current + 1);
   };
+
+  useEffect(() => {
+    let interval = setInterval(() => {
+      if (current === slides.length - 1) setCurrent(0);
+      else setCurrent(current + 1);
+    }, 10000);
+    return () => clearInterval(interval);
+  }, [current]);
   return (
-    <div className={`overflow-hidden relative ${className}`}>
+    <div
+      className={`overflow-hidden relative ${className} bg-black bg-opacity-15 backdrop-blur-sm rounded-lg`}
+    >
       <div
-        className={`flex  transition ease-out duration-100 translate-x-[-${
+        className={`flex  transition ease-out duration-500 translate-x-[-${
           current * 100
-        }%] `}
+        }%]  `}
         style={{
           transform: `translateX(-${current * 100}%)`,
         }}
@@ -34,7 +44,7 @@ export default function Carousel({ slides, className }: CarouselProps) {
         {slides?.map((rows, index) => (
           <Image
             key={index}
-            className={`w-full object-contain bg-white bg-opacity-50 rounded-lg `}
+            className={`w-full object-contain   rounded-lg `}
             src={rows}
             alt=""
             width={500}

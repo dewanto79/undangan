@@ -45,7 +45,6 @@ export default function WeddingEvent({ className }: WeddingEventProps) {
     setHours(Math.floor((time / (1000 * 60 * 60)) % 24));
     setMinutes(Math.floor((time / 1000 / 60) % 60));
     setSeconds(Math.floor((time / 1000) % 60));
-    console.log(days, hours, minutes, seconds);
   };
 
   useEffect(() => {
@@ -57,7 +56,6 @@ export default function WeddingEvent({ className }: WeddingEventProps) {
       setHours(Math.floor((time / (1000 * 60 * 60)) % 24));
       setMinutes(Math.floor((time / 1000 / 60) % 60));
       setSeconds(Number(Math.floor((time / 1000) % 60)));
-      console.log(days, hours, minutes, seconds);
     }, 1000);
     return () => clearInterval(interval);
   }, [seconds]);
@@ -120,7 +118,6 @@ export default function WeddingEvent({ className }: WeddingEventProps) {
       </div>
 
       {/* Event Location */}
-      
     </div>
   );
 }

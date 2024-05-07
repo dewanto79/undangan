@@ -12,7 +12,7 @@ import WeddingEvent from "@/components/layouts/WeddingEvent";
 
 export default function Content() {
   return (
-    <div>
+    <div id={"content"}>
       <section>
         <Doa className={``} />
       </section>

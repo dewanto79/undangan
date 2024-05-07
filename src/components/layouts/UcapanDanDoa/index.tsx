@@ -1,7 +1,41 @@
+import ChatBox from "@/components/Organisms/ChatBox";
+import { AddMessage } from "@/database/add-message-dto";
+import { addMessage, getAllMessages } from "@/database/firebase";
+import { Message } from "@/database/message.dto";
 import { Send, Send2 } from "iconsax-react";
 import Image from "next/image";
+import {
+  LegacyRef,
+  MutableRefObject,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 
 export default function UcapanDanDoa() {
+  const [isChatBox, setIsChatBox] = useState<boolean>(false);
+  const [messages, setMessages] = useState<Message[]>();
+
+  const chatRef = useRef<any>();
+
+  const getMessage = async () => {
+    let allMessage = await getAllMessages();
+    setMessages(allMessage);
+  };
+
+  const handleSubmit = (payload: AddMessage) => {
+    addMessage(payload);
+    setIsChatBox(false);
+    getMessage();
+  };
+
+  useEffect(() => {
+    getMessage();
+  }, []);
+  useEffect(() => {
+    getMessage();
+  }, [addMessage]);
+
   return (
     <div className={`px-3 h-[680px]`}>
       <div className={`rounded-lg`}>
@@ -26,39 +60,56 @@ export default function UcapanDanDoa() {
 
         {/* Body */}
         <div
-          className={`flex items-start justify-start px-4 py-3 bg-slate-200 gap-2 h-96`}
+          className={`flex flex-col h-96 items-start justify-start bg-slate-200 overflow-scroll`}
         >
-          {/* Profile Picture */}
-          <div className="w-10 h-10 flex-shrink-0">
-            <Image
-              className={`bg-white rounded-full shrink-0`}
-              alt={``}
-              src={`/images/profilepicture1.png`}
-              width={40}
-              height={40}
-              objectFit="contain"
-            />
-          </div>
-          <div
-            className={`bg-green-50 px-4 pt-2 pb-5 rounded-lg rounded-tl-none`}
-          >
-            {/* Nama */}
-            <div className={`font-inter font-bold text-[#3AA12A] text-xs`}>
-              Someone Like Youuuu
+          {messages?.map((rows, index) => (
+            <div
+              key={index}
+              className={`flex  items-start justify-start px-4 py-3  gap-2 `}
+            >
+              {/* Profile Picture */}
+              <div className={`w-fit`}>
+                <Image
+                  className={`w-10 h-10  rounded-[100%] bg-white object-contain`}
+                  alt={``}
+                  src={`/images/Avatar/${rows.imageId}`}
+                  width={40}
+                  height={40}
+                  objectFit={"contain"}
+                />
+              </div>
+              {/* chatbox */}
+              <div className={`flex items-end `}>
+                <div
+                  ref={chatRef as any}
+                  className={`bg-green-50 px-4 pt-2 pb-5 rounded-lg rounded-tl-none w-[90%]`}
+                >
+                  {/* Nama */}
+                  <div
+                    className={`font-inter font-bold text-[#3AA12A] text-xs`}
+                  >
+                    {rows.name}
+                  </div>
+                  {/* Pesan */}
+                  <div className={`font-inter text-xs mt-2`}>
+                    {rows.message}
+                  </div>
+                </div>
+                {/* <div>{rows.createdAt}</div> */}
+              </div>
             </div>
-            {/* Pesan */}
-            <div className={`font-inter text-xs mt-2`}>
-              Selamat menjalani kehidupan baru yang penuh bahagia. Semoga Tuhan
-              selalu melindungi dan memberikan berkah. Amin.
-            </div>
-          </div>
+          ))}
         </div>
+
         {/* chat  */}
         <div
           className={`flex items-center justify-between bg-slate-600 px-4 py-2 gap-3 rounded-bl-2xl rounded-br-2xl`}
         >
           <div
             className={`bg-stone-200 px-2 py-2 rounded-lg text-xs w-full italic text-[#7B7B7B]`}
+            onClick={() => {
+              setIsChatBox(true);
+            }}
           >
             Tuliskan ucapan atau kata
           </div>
@@ -67,6 +118,13 @@ export default function UcapanDanDoa() {
             className={`bg-stone-200 text-slate-600 rounded-[100%]  w-8 h-8`}
           />
         </div>
+        <ChatBox
+          onClose={() => {
+            setIsChatBox(false);
+          }}
+          isOpen={isChatBox}
+          onSubmit={handleSubmit}
+        />
       </div>
     </div>
   );

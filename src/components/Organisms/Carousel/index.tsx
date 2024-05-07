@@ -33,6 +33,7 @@ export default function Carousel({ slides, className }: CarouselProps) {
       >
         {slides?.map((rows, index) => (
           <Image
+            key={index}
             className={`w-full object-contain bg-white bg-opacity-50`}
             src={rows}
             alt=""
@@ -59,6 +60,7 @@ export default function Carousel({ slides, className }: CarouselProps) {
       >
         {slides?.map((rows, index) => (
           <Image
+            key={index}
             onClick={() => {
               setCurrent(index);
             }}

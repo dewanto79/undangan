@@ -82,7 +82,7 @@ export default function ChatBox({ isOpen, onClose, onSubmit }: ChatBoxProps) {
                   <div className={`text-xs  font-inter text-[#7B7B7B]`}>
                     Pilih foto profil
                   </div>
-                  <div className={`grid grid-cols-5 gap-3 mt-3`}>
+                  <div className={`grid grid-cols-6 gap-3 mt-3`}>
                     {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 15, 16].map(
                       (rows, index: number) => (
                         <Image

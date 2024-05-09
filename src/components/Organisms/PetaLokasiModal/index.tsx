@@ -34,10 +34,12 @@ export default function PetaLokasiModal({
           referrerPolicy="no-referrer-when-downgrade"
         />
         <Link
-          href={`https://maps.app.goo.gl/fcpdjvfCgwMPPvFq8`}
+          href={`https://www.google.com/maps/dir/?api=1&destination=-8.356479, 114.191007`}
           target="_blank"
         >
-          <button className={`w-full bg-slate-200 py-3 mt-3 rounded-full active:bg-slate-500`}>
+          <button
+            className={`w-full bg-slate-200 py-3 mt-3 rounded-full active:bg-slate-500`}
+          >
             Dapatkan petunjuk arah
           </button>
         </Link>

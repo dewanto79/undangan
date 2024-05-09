@@ -9,6 +9,7 @@ interface ChatBoxProps {
 }
 export default function ChatBox({ isOpen, onClose, onSubmit }: ChatBoxProps) {
   const [error, setError] = useState<boolean | undefined>();
+  const [photoModal, setPhotoModal] = useState<boolean>(false);
   const [selectedAvatar, setSelectedAvatar] =
     useState<string>(`/images/Avatar/1.png`);
   const [payload, setPayload] = useState<AddMessage>({
@@ -46,21 +47,65 @@ export default function ChatBox({ isOpen, onClose, onSubmit }: ChatBoxProps) {
         }}
       >
         {/* row 1 */}
-        <div className={`flex gap-2`}>
+        <div className={`flex gap-2 relative w-full`}>
           <div
-            className={`bg-stone-200 w-[30%] p-1 rounded-lg flex flex-col justify-center items-center`}
+            onClick={() => {
+              setPhotoModal(true);
+            }}
+            className={` bg-stone-200 w-[30%] p-1 rounded-lg flex flex-col justify-center items-center`}
           >
             <div>
               <Image
                 className={`w-16 h-16  rounded-[100%] bg-white object-contain`}
                 alt=""
                 objectFit={"contain"}
-                src={selectedAvatar}
+                src={`/images/Avatar/${payload.imageId}`}
                 width={100}
                 height={136}
               />
             </div>
-            <div className={`text-xs`}>Ganti Foto</div>
+            <div className={`text-xs mt-2`}>Ganti Foto</div>
+            {photoModal && (
+              <div
+                onClick={(e) => {
+                  setPhotoModal(false);
+                  e.stopPropagation();
+                }}
+                className={`min-h-screen  absolute inset-0  flex items-center justify-center px-1 z-50 w-full`}
+              >
+                <div
+                  onClick={() => {
+                    setPhotoModal(false);
+                  }}
+                  className={`absolute top-[104px] left-0 mx-auto my-auto bg-stone-200 flex flex-col p-2 w-full rounded-lg `}
+                >
+                  <div className={`text-xs  font-inter text-[#7B7B7B]`}>
+                    Pilih foto profil
+                  </div>
+                  <div className={`grid grid-cols-5 gap-3 mt-3`}>
+                    {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map(
+                      (rows, index: number) => (
+                        <Image
+                          onClick={(e) => {
+                            setPayload((prev) => ({
+                              ...prev,
+                              imageId: `${rows}.png`,
+                            }));
+                            setPhotoModal(false);
+                          }}
+                          className={`object-contain rounded-full bg-white w-10 h-10`}
+                          objectFit="cover"
+                          alt={``}
+                          src={`/images/Avatar/${rows}.png`}
+                          width={30}
+                          height={30}
+                        />
+                      )
+                    )}
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
           <div className={`bg-stone-200 w-[70%] p-2 rounded-lg`}>
             <div

@@ -61,9 +61,9 @@ export default function WeddingEvent({ className }: WeddingEventProps) {
   }, [seconds]);
 
   return (
-    <div className={`p-6 text-center`}>
+    <div className={`text-center p-5`}>
       {/* Wedding Event */}
-      <div className={`bg-white bg-opacity-50 rounded-lg py-6 px-4 `}>
+      <div className={`bg-white bg-opacity-50 rounded-lg py-6 px-4 w-full`}>
         <div>
           <div className={`font-lobster text-4xl`}>Wedding Event</div>
           <div className={`mt-6`}>

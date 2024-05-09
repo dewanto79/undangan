@@ -64,7 +64,7 @@ export default function UcapanDanDoa() {
           </div>
           <div className={`text-white`}>
             <div className={`font-bold font-inter`}>Grup Ucapan dan Doa</div>
-            <div className={`text-xs`}> Anggota</div>
+            <div className={`text-xs`}>Anggota</div>
           </div>
         </div>
 
@@ -78,7 +78,7 @@ export default function UcapanDanDoa() {
               className={`flex  items-start justify-start px-4 py-3  gap-2 `}
             >
               {/* Profile Picture */}
-              <div className={`w-fit`}>
+              <div>
                 <Image
                   className={`w-10 h-10  rounded-[100%] bg-white object-contain`}
                   alt={``}
@@ -92,7 +92,7 @@ export default function UcapanDanDoa() {
               <div className={`flex items-end `}>
                 <div
                   ref={messagesEndRef as any}
-                  className={`bg-green-50 px-4 pt-2 pb-5 rounded-lg rounded-tl-none w-[90%]`}
+                  className={`bg-green-50 px-4 pt-2 pb-5 rounded-lg rounded-tl-none max-w-60`}
                 >
                   {/* Nama */}
                   <div

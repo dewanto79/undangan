@@ -4,7 +4,7 @@ interface PerkenalanProps {
 }
 export default function Perkenalan({ className }: PerkenalanProps) {
   return (
-    <div>
+    <div className={`w-full`}>
       <div
         className={`bg-my_bg_image2 bg-cover text-center flex flex-col items-center justify-center px-11 py-10 ${className} `}
       >

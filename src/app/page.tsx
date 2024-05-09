@@ -16,7 +16,6 @@ import {
 export default function Home() {
   const [state, setState] = useState<boolean>(true);
   const [audioStatus, setAudioStatus] = useState<boolean>(false);
-  const audio = new Audio("/audio/bgm.mp3");
   const myRef = useRef<HTMLAudioElement>();
 
   const startAudio = () => {

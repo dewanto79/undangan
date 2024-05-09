@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function Penutup() {
   return (
-    <div className={`text-center`}>
+    <div className={`text-center pt-9 px-8`}>
       <div className={`font-montserrat`}>
         Merupakan suatu kehormatan dan kebahagiaan bagi kami, apabila
         Bapak/Ibu/Saudara/i berkenan hadir dan memberikan doa restu kepada kedua

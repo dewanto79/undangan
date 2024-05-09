@@ -16,17 +16,27 @@ export default function UcapanDanDoa() {
   const [isChatBox, setIsChatBox] = useState<boolean>(false);
   const [messages, setMessages] = useState<Message[]>();
 
-  const chatRef = useRef<any>();
+  const messagesEndRef = useRef<HTMLDivElement>();
+
+  const scrollToBottom = () => {
+    messagesEndRef.current?.scrollBy({ behavior: "smooth" });
+  };
+
+  useEffect(() => {
+    scrollToBottom();
+  }, [messages]);
 
   const getMessage = async () => {
     let allMessage = await getAllMessages();
     setMessages(allMessage);
   };
 
-  const handleSubmit = (payload: AddMessage) => {
-    addMessage(payload);
+  const handleSubmit = async (payload: AddMessage) => {
+    await addMessage(payload).then(() => {
+      getMessage();
+      messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+    });
     setIsChatBox(false);
-    getMessage();
   };
 
   useEffect(() => {
@@ -54,7 +64,7 @@ export default function UcapanDanDoa() {
           </div>
           <div className={`text-white`}>
             <div className={`font-bold font-inter`}>Grup Ucapan dan Doa</div>
-            <div className={`text-xs`}>100 Anggota</div>
+            <div className={`text-xs`}> Anggota</div>
           </div>
         </div>
 
@@ -81,7 +91,7 @@ export default function UcapanDanDoa() {
               {/* chatbox */}
               <div className={`flex items-end `}>
                 <div
-                  ref={chatRef as any}
+                  ref={messagesEndRef as any}
                   className={`bg-green-50 px-4 pt-2 pb-5 rounded-lg rounded-tl-none w-[90%]`}
                 >
                   {/* Nama */}

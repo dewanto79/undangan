@@ -17,7 +17,7 @@ export default function Perkenalan({ className }: PerkenalanProps) {
           acara pernikahan kami
         </div>
       </div>
-      <div className={`bg-white px-12 py-14 flex flex-col`}>
+      <div className={`bg-my_bg_image4 px-12 py-14 flex flex-col`}>
         <PasutriCard
           namaAyah={"Bapak Ariyanto"}
           namaIbu={"Ibu Lili Irawati"}

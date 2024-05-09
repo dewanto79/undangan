@@ -3,6 +3,7 @@ import { AddMessage } from "@/database/add-message-dto";
 import { addMessage, getAllMessages } from "@/database/firebase";
 import { Message } from "@/database/message.dto";
 import { Send, Send2 } from "iconsax-react";
+import moment from "moment";
 import Image from "next/image";
 import {
   LegacyRef,
@@ -12,9 +13,32 @@ import {
   useState,
 } from "react";
 
+function getColorFromImage(image: any) {
+  const color: { [key: string]: string } = {
+    "1.png": "rgb(195, 120, 146)",
+    "2.png": "rgb(192 132 252)",
+    "3.png": "rgb(74, 222, 128)",
+    "4.png": "rgb(248, 113, 113)",
+    "5.png": "rgb(251, 146, 60)",
+    "6.png": "rgb(251, 191, 36)",
+    "7.png": "rgb(250, 204, 21)",
+    "8.png": "rgb(236, 72, 153)",
+    "9.png": "rgb(130, 99, 90)",
+    "10.png": "rgb(100, 116, 139)",
+    "11.png": "rgb(5, 150, 105)",
+    "12.png": "rgb(94, 234, 212)",
+    "13.png": "rgb(14, 116, 144)",
+    "14.png": "rgb(2, 132, 199)",
+    "15.png": "rgb(163, 230, 53)",
+    "16.png": "rgb(159, 18, 57)",
+  };
+  return color[image] || color["1.png"];
+}
+
 export default function UcapanDanDoa() {
   const [isChatBox, setIsChatBox] = useState<boolean>(false);
   const [messages, setMessages] = useState<Message[]>();
+  const [groupCount, setGroupCount] = useState<number>();
 
   const messagesEndRef = useRef<HTMLDivElement>();
 
@@ -28,15 +52,16 @@ export default function UcapanDanDoa() {
 
   const getMessage = async () => {
     let allMessage = await getAllMessages();
-    setMessages(allMessage);
+    setMessages(allMessage.data);
+    setGroupCount(allMessage.count);
   };
 
   const handleSubmit = async (payload: AddMessage) => {
+    setIsChatBox(false);
     await addMessage(payload).then(() => {
       getMessage();
       messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
     });
-    setIsChatBox(false);
   };
 
   useEffect(() => {
@@ -64,7 +89,7 @@ export default function UcapanDanDoa() {
           </div>
           <div className={`text-white`}>
             <div className={`font-bold font-inter`}>Grup Ucapan dan Doa</div>
-            <div className={`text-xs`}>Anggota</div>
+            <div className={`text-xs`}>{groupCount} Anggota</div>
           </div>
         </div>
 
@@ -74,8 +99,8 @@ export default function UcapanDanDoa() {
         >
           {messages?.map((rows, index) => (
             <div
-              key={index}
-              className={`flex  items-start justify-start px-4 py-3  gap-2 `}
+              key={rows.id}
+              className={`flex items-start justify-start px-4 py-1 gap-2 `}
             >
               {/* Profile Picture */}
               <div>
@@ -89,14 +114,17 @@ export default function UcapanDanDoa() {
                 />
               </div>
               {/* chatbox */}
-              <div className={`flex items-end `}>
+              <div className={`flex items-end gap-2`}>
                 <div
                   ref={messagesEndRef as any}
                   className={`bg-green-50 px-4 pt-2 pb-5 rounded-lg rounded-tl-none max-w-60`}
                 >
                   {/* Nama */}
                   <div
-                    className={`font-inter font-bold text-[#3AA12A] text-xs`}
+                    style={{
+                      color: getColorFromImage(rows.imageId),
+                    }}
+                    className={`font-inter font-bold text-xs`}
                   >
                     {rows.name}
                   </div>
@@ -105,7 +133,7 @@ export default function UcapanDanDoa() {
                     {rows.message}
                   </div>
                 </div>
-                {/* <div>{rows.createdAt}</div> */}
+                <div>{moment(rows.createdAt).format("HH:mm")}</div>
               </div>
             </div>
           ))}

@@ -7,12 +7,14 @@ interface LandingPageProps {
   state: boolean;
   setState: Dispatch<SetStateAction<boolean>>;
   className?: string;
+  playAudio: () => void;
 }
 
 export default function LandingPage({
   className,
   state,
   setState,
+  playAudio,
 }: LandingPageProps) {
   const router = useRouter();
 
@@ -36,6 +38,7 @@ export default function LandingPage({
           onClick={() => {
             setState(true);
             router.push(`#content`);
+            playAudio();
           }}
           className={`bg-sky-200 px-4 py-2 rounded-lg active:bg-sky-300 transform transition-all duration-100 ${
             state && "invisible"

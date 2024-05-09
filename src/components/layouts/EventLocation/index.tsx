@@ -9,7 +9,7 @@ interface EventLocationProps {
 export default function EventLocation({ className }: EventLocationProps) {
   const [modal, setModal] = useState<boolean>(false);
   return (
-    <div className={`px-9 py-28 relative ${className} text-center w-full`}>
+    <div className={`px-9 py-36 relative ${className} text-center w-full`}>
       <Image
         className={`absolute top-0 left-0`}
         alt=""

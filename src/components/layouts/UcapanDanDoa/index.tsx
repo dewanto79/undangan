@@ -117,23 +117,39 @@ export default function UcapanDanDoa() {
               <div className={`flex items-end gap-2`}>
                 <div
                   ref={messagesEndRef as any}
-                  className={`bg-green-50 px-4 pt-2 pb-5 rounded-lg rounded-tl-none max-w-60`}
+                  className={`bg-green-50 px-4 pt-2 pb-3 rounded-lg rounded-tl-none max-w-60`}
                 >
-                  {/* Nama */}
-                  <div
-                    style={{
-                      color: getColorFromImage(rows.imageId),
-                    }}
-                    className={`font-inter font-bold text-xs`}
-                  >
-                    {rows.name}
+                  <div className={`flex justify-between gap-4`}>
+                    {/* Nama */}
+                    <div
+                      style={{
+                        color: getColorFromImage(rows.imageId),
+                      }}
+                      className={`font-inter font-bold text-xs`}
+                    >
+                      {rows.name}
+                    </div>
+                    {/* Hadir tidak */}
+                    {rows.isAttending && (
+                      <div className={`font-inter text-xs text-slate-300`}>
+                        ~hadir{" "}
+                      </div>
+                    )}
+
+                    {!rows.isAttending && (
+                      <div className={`font-inter text-xs text-slate-300`}>
+                        ~tidak hadir{" "}
+                      </div>
+                    )}
                   </div>
                   {/* Pesan */}
                   <div className={`font-inter text-xs mt-2`}>
                     {rows.message}
                   </div>
                 </div>
-                <div>{moment(rows.createdAt).format("HH:mm")}</div>
+                <div className={`font-inter text-xs text-slate-400`}>
+                  {moment(rows.createdAt).format("HH:mm")}
+                </div>
               </div>
             </div>
           ))}

@@ -23,7 +23,7 @@ export default function Content() {
         <WeddingEvent />
       </section>
       <section>
-        <EventLocation className={`bg-white`} />
+        <EventLocation />
       </section>
       <section>
         <GaleriFoto />

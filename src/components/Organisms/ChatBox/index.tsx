@@ -86,6 +86,7 @@ export default function ChatBox({ isOpen, onClose, onSubmit }: ChatBoxProps) {
                     {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map(
                       (rows, index: number) => (
                         <Image
+                          key={index}
                           onClick={(e) => {
                             setPayload((prev) => ({
                               ...prev,

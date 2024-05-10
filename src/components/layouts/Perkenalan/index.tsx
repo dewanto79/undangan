@@ -23,6 +23,7 @@ export default function Perkenalan({ className }: PerkenalanProps) {
           namaIbu={"Ibu Lili Irawati"}
           nama={"Dewanto Surya Setyoadji"}
           desc={"Putra pertama dari"}
+          foto={"bg-my_bg_dewan"}
         />
         <PasutriCard
           className={`mt-20`}
@@ -30,6 +31,7 @@ export default function Perkenalan({ className }: PerkenalanProps) {
           namaIbu={"Ibu Supatmi"}
           nama={"Kiki Deya Frilyan Fatmala"}
           desc={"Putri pertama dari"}
+          foto={"bg-my_bg_kiki"}
         />
       </div>
     </div>

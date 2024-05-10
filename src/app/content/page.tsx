@@ -12,7 +12,7 @@ import WeddingEvent from "@/components/layouts/WeddingEvent";
 import { useEffect, useRef } from "react";
 
 export default function Content() {
-  const ref = useRef<HTMLDivElement>();
+  const ref = useRef<HTMLDivElement>(null);
   useEffect(()=>{
     ref.current?.scrollIntoView()
   },[])

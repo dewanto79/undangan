@@ -35,10 +35,16 @@ function getColorFromImage(image: any) {
   return color[image] || color["1.png"];
 }
 
+interface managedDataProps {
+  date: string;
+  data: Message[];
+}
+
 export default function UcapanDanDoa() {
   const [isChatBox, setIsChatBox] = useState<boolean>(false);
   const [messages, setMessages] = useState<Message[]>();
   const [groupCount, setGroupCount] = useState<number>();
+  const [managedData, setManagedData] = useState<managedDataProps[]>();
 
   const messagesEndRef = useRef<HTMLDivElement>();
 
@@ -52,6 +58,7 @@ export default function UcapanDanDoa() {
 
   const getMessage = async () => {
     let allMessage = await getAllMessages();
+    manageData(allMessage.data);
     setMessages(allMessage.data);
     setGroupCount(allMessage.count);
   };
@@ -64,7 +71,39 @@ export default function UcapanDanDoa() {
     });
   };
 
+  const manageData = (data: Message[]) => {
+    const groups: { [key: string]: Message[] } = data?.reduce(
+      (groups: any, game: Message) => {
+        const date: string = moment(game.updatedAt).format("YYYY-MM-DD");
+        if (!groups[date as keyof typeof groups]) {
+          groups[date as keyof typeof groups] = [];
+        }
+        groups[date].push(game);
+        return groups;
+      },
+      {}
+    );
+
+    // Edit: to add it in the array format instead
+    const groupArrays = Object?.keys(groups)
+      .map((date) => {
+        return {
+          date,
+          data: groups[date as keyof typeof groups],
+        };
+      })
+      .sort((a, b) => {
+        let da = new Date(a.date);
+        let db = new Date(b.date);
+        return da.getTime() - db.getTime();
+      });
+
+    setManagedData(groupArrays);
+    console.log(groupArrays);
+  };
+
   useEffect(() => {
+    console.log(moment(new Date().toISOString()).format("YYYY-MM-DD"));
     getMessage();
   }, []);
   useEffect(() => {
@@ -97,59 +136,82 @@ export default function UcapanDanDoa() {
         <div
           className={`flex flex-col h-96 items-start justify-start bg-slate-200 overflow-scroll`}
         >
-          {messages?.map((rows, index) => (
-            <div
-              key={rows.id}
-              className={`flex items-start justify-start px-4 py-1 gap-2 `}
-            >
-              {/* Profile Picture */}
-              <div>
-                <Image
-                  className={`w-10 h-10  rounded-[100%] bg-white object-contain`}
-                  alt={``}
-                  src={`/images/Avatar/${rows.imageId}`}
-                  width={40}
-                  height={40}
-                  objectFit={"contain"}
-                />
+          {managedData?.map((rows, index) => (
+            <div key={index} className={`flex flex-col w-full`}>
+              <div
+                className={`w-fit mx-auto my-2 text-xs bg-white opacity-60 rounded-lg px-3 py-1`}
+              >
+                {rows.date ===
+                moment(new Date().toISOString()).format("YYYY-MM-DD")
+                  ? "Today"
+                  : rows.date ===
+                    moment(new Date().setDate(new Date().getDate() - 1)).format(
+                      "YYYY-MM-DD"
+                    )
+                  ? "Yesterday"
+                  : rows.date}
               </div>
-              {/* chatbox */}
-              <div className={`flex items-end gap-2`}>
-                <div
-                  ref={messagesEndRef as any}
-                  className={`bg-green-50 px-4 pt-2 pb-3 rounded-lg rounded-tl-none max-w-60`}
-                >
-                  <div className={`flex justify-between gap-4`}>
-                    {/* Nama */}
-                    <div
-                      style={{
-                        color: getColorFromImage(rows.imageId),
-                      }}
-                      className={`font-inter font-bold text-xs`}
-                    >
-                      {rows.name}
+              <div>
+                {rows.data?.map((rows, index) => (
+                  <div
+                    key={index}
+                    className={`flex items-start justify-start px-4 py-1 gap-2 `}
+                  >
+                    <div>
+                      <Image
+                        className={`w-10 h-10  rounded-[100%] bg-white object-contain`}
+                        alt={``}
+                        src={`/images/Avatar/${rows?.imageId ?? "1.png"}`}
+                        width={40}
+                        height={40}
+                        objectFit={"contain"}
+                      />
                     </div>
-                    {/* Hadir tidak */}
-                    {rows.isAttending && (
-                      <div className={`font-inter text-xs text-slate-300`}>
-                        ~hadir{" "}
-                      </div>
-                    )}
+                    {/* chatbox */}
+                    <div className={`flex items-end gap-2`}>
+                      <div
+                        ref={messagesEndRef as any}
+                        className={`bg-green-50 px-4 pt-2 pb-3 rounded-lg rounded-tl-none max-w-60`}
+                      >
+                        <div className={`flex justify-between gap-4`}>
+                          {/* Nama */}
+                          <div
+                            style={{
+                              color: getColorFromImage(rows?.imageId),
+                            }}
+                            className={`font-inter font-bold text-xs`}
+                          >
+                            {rows?.name}
+                          </div>
+                          {/* Hadir tidak */}
+                          {rows?.isAttending && (
+                            <div
+                              className={`font-inter text-xs text-slate-300`}
+                            >
+                              ~hadir{" "}
+                            </div>
+                          )}
 
-                    {!rows.isAttending && (
-                      <div className={`font-inter text-xs text-slate-300`}>
-                        ~tidak hadir{" "}
+                          {!rows?.isAttending && (
+                            <div
+                              className={`font-inter text-xs text-slate-300`}
+                            >
+                              ~tidak hadir{" "}
+                            </div>
+                          )}
+                        </div>
+                        {/* Pesan */}
+                        <div className={`font-inter text-xs mt-2`}>
+                          {rows?.message}
+                        </div>
                       </div>
-                    )}
+                      <div className={`font-inter text-xs text-slate-400`}>
+                        {moment(rows?.createdAt).format("HH:mm")}
+                      </div>
+                    </div>
                   </div>
-                  {/* Pesan */}
-                  <div className={`font-inter text-xs mt-2`}>
-                    {rows.message}
-                  </div>
-                </div>
-                <div className={`font-inter text-xs text-slate-400`}>
-                  {moment(rows.createdAt).format("HH:mm")}
-                </div>
+                ))}
+                {/* Profile Picture */}
               </div>
             </div>
           ))}

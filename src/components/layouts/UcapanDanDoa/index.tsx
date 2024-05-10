@@ -149,7 +149,7 @@ export default function UcapanDanDoa() {
                       "YYYY-MM-DD"
                     )
                   ? "Yesterday"
-                  : rows.date}
+                  : moment(rows.date).format('D MMMM YYYY')}
               </div>
               <div>
                 {rows.data?.map((rows2, index) => (
@@ -174,7 +174,7 @@ export default function UcapanDanDoa() {
                     <div className={`flex items-end gap-2`}>
                       <div
                         ref={messagesEndRef as any}
-                        className={`bg-green-50 px-4 pt-2 pb-3 rounded-lg rounded-tl-none max-w-60`}
+                        className={`bg-green-50 px-4 pt-2 pb-3 rounded-lg rounded-tl-none max-w-44`}
                       >
                         <div className={`flex justify-between gap-4`}>
                           {/* Nama */}

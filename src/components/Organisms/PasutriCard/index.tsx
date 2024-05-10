@@ -6,9 +6,11 @@ interface PasutriCard {
   namaIbu: string;
   nama: string;
   desc: string;
+  foto: string;
 }
 export default function PasutriCard({
   className,
+  foto,
   desc,
   namaAyah,
   namaIbu,
@@ -20,7 +22,7 @@ export default function PasutriCard({
     >
       {/* image */}
       {/* <Image alt="" src={""} className={`w-[215px] h-[317px]`} /> */}
-      <div className={`w-[215px] h-[317px] bg-[#D9D9D9] rounded-[50%]`} />
+      <div className={`w-[215px] h-[317px] ${foto} bg-cover rounded-[50%]`} />
       <div className="font-euphoria text-3xl">{nama}</div>
       <div className={``}>
         <div className={`font-montserrat text-base text-center `}> {desc}</div>

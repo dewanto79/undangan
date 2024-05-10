@@ -17,6 +17,8 @@ const config: Config = {
         my_bg_image2: "url('/images/background2.png')",
         my_bg_image3: "url('/images/background3.png')",
         my_bg_image4: "url('/images/background4.png')",
+        my_bg_dewan: "url('/images/foto-dewan.png')",
+        my_bg_kiki: "url('/images/foto-kiki.jpg')",
       },
       fontFamily: {
         inter: ["var(--font-inter)"],

@@ -28,7 +28,7 @@ export default function Content() {
         <WeddingEvent />
       </section>
       <section>
-        <EventLocation className={`bg-white`} />
+        <EventLocation className={`bg-white bg-opacity-10 backdrop-blur-sm`}/>
       </section>
       <section>
         <GaleriFoto />

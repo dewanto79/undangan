@@ -51,7 +51,14 @@ export async function getAllMessages() {
   );
 
   const returned: Message[] = [];
+  const objectName: any = {};
+  let count = 0;
   docRef.forEach((doc) => {
+    if (!objectName[doc.data().name]) {
+      objectName[doc.data().name] = true;
+      count++;
+    }
+
     return returned.push({
       ...doc.data(),
       id: doc.id,
@@ -60,5 +67,5 @@ export async function getAllMessages() {
     } as Message);
   });
 
-  return returned;
+  return { count: count, data: returned };
 }

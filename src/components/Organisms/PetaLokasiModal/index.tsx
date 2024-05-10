@@ -34,7 +34,7 @@ export default function PetaLokasiModal({
           referrerPolicy="no-referrer-when-downgrade"
         />
         <Link
-          href={`https://www.google.com/maps/dir/?api=1&destination=-8.356479, 114.191007`}
+          href={`https://www.google.com/maps/dir/?api=1&destination=-8.356459,114.191025`}
           target="_blank"
         >
           <button

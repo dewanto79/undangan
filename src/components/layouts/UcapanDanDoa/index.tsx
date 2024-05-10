@@ -134,7 +134,7 @@ export default function UcapanDanDoa() {
 
         {/* Body */}
         <div
-          className={`flex flex-col h-96 items-start justify-start bg-slate-200 overflow-scroll`}
+          className={`flex flex-col h-96 items-start justify-start bg-slate-200 overflow-scroll py-2`}
         >
           {managedData?.map((rows, index) => (
             <div key={index} className={`flex flex-col w-full`}>
@@ -152,16 +152,19 @@ export default function UcapanDanDoa() {
                   : rows.date}
               </div>
               <div>
-                {rows.data?.map((rows, index) => (
+                {rows.data?.map((rows2, index) => (
                   <div
                     key={index}
                     className={`flex items-start justify-start px-4 py-1 gap-2 `}
                   >
                     <div>
                       <Image
-                        className={`w-10 h-10  rounded-[100%] bg-white object-contain`}
+                        className={`w-10 h-10  rounded-[100%] bg-white object-contain ${
+                          rows2.name === rows.data[index - 1]?.name &&
+                          "invisible"
+                        }`}
                         alt={``}
-                        src={`/images/Avatar/${rows?.imageId ?? "1.png"}`}
+                        src={`/images/Avatar/${rows2?.imageId ?? "1.png"}`}
                         width={40}
                         height={40}
                         objectFit={"contain"}
@@ -177,36 +180,24 @@ export default function UcapanDanDoa() {
                           {/* Nama */}
                           <div
                             style={{
-                              color: getColorFromImage(rows?.imageId),
+                              color: getColorFromImage(rows2?.imageId),
                             }}
                             className={`font-inter font-bold text-xs`}
                           >
-                            {rows?.name}
+                            {rows2.name}
                           </div>
                           {/* Hadir tidak */}
-                          {rows?.isAttending && (
-                            <div
-                              className={`font-inter text-xs text-slate-300`}
-                            >
-                              ~hadir{" "}
-                            </div>
-                          )}
-
-                          {!rows?.isAttending && (
-                            <div
-                              className={`font-inter text-xs text-slate-300`}
-                            >
-                              ~tidak hadir{" "}
-                            </div>
-                          )}
+                          <div className={`font-inter text-xs text-slate-300`}>
+                            {rows2?.isAttending ? "~hadir" : "~tidak hadir"}
+                          </div>
                         </div>
                         {/* Pesan */}
                         <div className={`font-inter text-xs mt-2`}>
-                          {rows?.message}
+                          {rows2?.message}
                         </div>
                       </div>
-                      <div className={`font-inter text-xs text-slate-400`}>
-                        {moment(rows?.createdAt).format("HH:mm")}
+                      <div className={`font-inter text-[10px] text-slate-400`}>
+                        {moment(rows2?.createdAt).format("HH:mm")}
                       </div>
                     </div>
                   </div>

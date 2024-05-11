@@ -1,4 +1,5 @@
 import PetaLokasiModal from "@/components/Organisms/PetaLokasiModal";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import { useState } from "react";
 
@@ -10,13 +11,19 @@ export default function EventLocation({ className }: EventLocationProps) {
   const [modal, setModal] = useState<boolean>(false);
   return (
     <div className={`px-9 py-36 relative ${className} text-center w-full`}>
-      <Image
+      <motion.div
+        // animate={{ rotate: [-15, 0, 15, 0, -15] }}
+        // transition={{ repeat: Infinity }}
         className={`absolute top-0 left-0`}
-        alt=""
-        src={`/images/bnga-top-left.png`}
-        width={233}
-        height={152}
-      />
+      >
+        <Image
+          className={``}
+          alt=""
+          src={`/images/bnga-top-left.png`}
+          width={233}
+          height={152}
+        />
+      </motion.div>
       <Image
         className={`absolute bottom-0 right-0`}
         alt=""

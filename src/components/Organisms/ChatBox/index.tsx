@@ -10,6 +10,7 @@ interface ChatBoxProps {
 export default function ChatBox({ isOpen, onClose, onSubmit }: ChatBoxProps) {
   const [error, setError] = useState<boolean | undefined>();
   const [photoModal, setPhotoModal] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(false);
   const [selectedAvatar, setSelectedAvatar] =
     useState<string>(`/images/Avatar/1.png`);
   const [payload, setPayload] = useState<AddMessage>({
@@ -30,6 +31,7 @@ export default function ChatBox({ isOpen, onClose, onSubmit }: ChatBoxProps) {
       setError(true);
     } else {
       onSubmit(payload);
+      setLoading(false)
     }
   };
 
@@ -177,6 +179,7 @@ export default function ChatBox({ isOpen, onClose, onSubmit }: ChatBoxProps) {
         </div>
 
         <button
+          disabled={loading}
           type="submit"
           onClick={onHandleSubmit}
           className={`w-full bg-stone-200 rounded-full py-1 text-xs active:bg-sky-950 active:text-white transition-all duration-100`}

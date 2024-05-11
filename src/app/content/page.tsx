@@ -9,11 +9,16 @@ import Penutup from "@/components/layouts/Penutup";
 import Perkenalan from "@/components/layouts/Perkenalan";
 import UcapanDanDoa from "@/components/layouts/UcapanDanDoa";
 import WeddingEvent from "@/components/layouts/WeddingEvent";
+import { useEffect, useRef } from "react";
 
 export default function Content() {
+  const ref = useRef<HTMLDivElement>(null);
+  useEffect(()=>{
+    ref.current?.scrollIntoView()
+  },[])
   return (
     <div id={"content"}>
-      <section>
+      <section ref={ref}>
         <Doa className={``} />
       </section>
       <section>

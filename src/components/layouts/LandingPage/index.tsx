@@ -37,7 +37,6 @@ export default function LandingPage({
         <button
           onClick={() => {
             setState(true);
-            router.push(`#content`);
             playAudio();
           }}
           className={`bg-sky-200 px-4 py-2 rounded-lg active:bg-sky-300 transform transition-all duration-100 ${

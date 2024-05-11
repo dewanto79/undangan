@@ -6,6 +6,7 @@ import {
   Montserrat,
 } from "next/font/google";
 import "./globals.css";
+import { Suspense } from "react";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -41,14 +42,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
-      <body
-        className={`${inter.variable} ${lobster_two.variable} ${euphoria_script.variable} ${montserrat.variable} bg-white text-black `}
-      >
-        <main className={`bg-my_bg_image bg-fixed max-w-[375px] mx-auto bg-cover `}>
-          {children}
-        </main>
-      </body>
-    </html>
+    <Suspense>
+      <html lang="en" className="scroll-smooth">
+        <body
+          className={`${inter.variable} ${lobster_two.variable} ${euphoria_script.variable} ${montserrat.variable} bg-white text-black `}
+        >
+          <main
+            className={`bg-my_bg_image bg-fixed max-w-[375px] mx-auto bg-cover `}
+          >
+            {children}
+          </main>
+        </body>
+      </html>
+    </Suspense>
   );
 }

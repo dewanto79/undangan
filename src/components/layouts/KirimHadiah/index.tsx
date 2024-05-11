@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { Gift } from "iconsax-react";
+import { motion } from "framer-motion";
 
 export default function KirimHadiah() {
   const [expand, setExpand] = useState<boolean>(false);
@@ -21,15 +22,29 @@ export default function KirimHadiah() {
     >
       <div className={`bg-slate-200 bg-opacity-50 h-full py-10`}>
         <div className={`px-7`}>
-          <div className={`font-lobster text-4xl`}>Kirim Hadiah</div>
-          <div className={`font-inter`}>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+            className={`font-lobster text-4xl mb-6`}
+          >
+            Kirim Hadiah
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.2 }}
+            className={`font-inter`}
+          >
             Tanpa mengurangi rasa hormat, bagi anda yang ingin memberikan tanda
             kasih untuk mempelai, dapat melalui tombol menu berikut:
-          </div>
+          </motion.div>
         </div>
         <div className={`w-full mt-8`}>
           {expand ? (
-            <div className={`text-center w-full px-5 divide-y-2 divide-black divide-opacity-15`}>
+            <motion.div
+              className={`text-center w-full px-5 divide-y-2 divide-black divide-opacity-15`}
+            >
               <div className={`pb-4`}>
                 <div className={`font-inter `}>
                   Nomor Rekening Mempelai Pria
@@ -102,16 +117,22 @@ export default function KirimHadiah() {
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ) : (
-            <button
-              onClick={() => {
-                setExpand(true);
-              }}
-              className={`bg-sky-200 px-4 py-2 rounded-lg active:bg-sky-300 transform transition-all duration-100 shadow-xl`}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 0.4 }}
             >
-              Kirim hadiah di sini
-            </button>
+              <button
+                onClick={() => {
+                  setExpand(true);
+                }}
+                className={`bg-sky-200 px-4 py-2 rounded-lg active:bg-sky-300 transform transition-all duration-100 shadow-xl`}
+              >
+                Kirim hadiah di sini
+              </button>
+            </motion.div>
           )}
         </div>
       </div>

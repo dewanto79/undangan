@@ -1,5 +1,6 @@
 "use client";
 
+import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 
 interface WeddingEventProps {
@@ -61,10 +62,17 @@ export default function WeddingEvent({ className }: WeddingEventProps) {
   }, [seconds]);
 
   return (
-    <div className={`text-center p-5`}>
+    <div className={`text-center p-4`}>
       {/* Wedding Event */}
-      <div className={`bg-white bg-opacity-50 rounded-lg py-6 px-4 w-full`}>
-        <div>
+      <motion.div
+        className={`bg-white bg-opacity-50 rounded-lg py-6 px-4 w-full `}
+      >
+        <motion.div
+          initial={{ opacity: 0, x: -20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ margin: "200px" }}
+        >
           <div className={`font-lobster text-4xl`}>Wedding Event</div>
           <div className={`mt-6`}>
             <div className={`font-euphoria text-5xl`}>Selasa</div>
@@ -72,50 +80,80 @@ export default function WeddingEvent({ className }: WeddingEventProps) {
               18 . 06 . 2024
             </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* Akad Nikah */}
-        <div className={`mt-4 font-montserrat`}>
+        <motion.div
+          initial={{ scale: 0 }}
+          whileInView={{ scale: 1 }}
+          className={`mt-4 font-montserrat`}
+          transition={{ duration: 0.3 }}
+        >
           <div className={`font-bold text-2xl`}>Akad Nikah</div>
           <div className={``}>Pukul 10.00 WIB</div>
-        </div>
+        </motion.div>
 
-        <div className={`h-20 w-[3px] bg-black mx-auto my-3`} />
+        <div className={`h-32 my-3`}>
+          <motion.div
+            initial={{ height: "0px" }}
+            whileInView={{ height: "128px" }}
+            transition={{ duration: 0.5 }}
+            viewport={{ margin: "200px" }}
+            className={`h-32 w-[3px] bg-black mx-auto `}
+          />
+        </div>
 
         {/* Resepsi Pernikahan */}
-        <div className={` font-montserrat`}>
+        <motion.div
+          initial={{ scale: 0 }}
+          whileInView={{ scale: 1 }}
+          className={`mt-4 font-montserrat`}
+          transition={{ duration: 0.3 }}
+        >
           <div className={`font-bold text-2xl`}>Resepsi Pernikahan</div>
           <div>Pukul 11.00 s.d 17.00 WIB</div>
-        </div>
+        </motion.div>
 
         {/* Timer */}
         <div className={`flex items-center justify-center gap-1 mt-7`}>
-          <div
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
             className={`flex flex-col items-center justify-center p-4 drop shadow-lg border bg-white`}
           >
             <div className={`font-bold font-inter`}>{days}</div>
             <div className={`italic font-inter text-xs`}>Hari</div>
-          </div>
-          <div
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.5 }}
             className={`flex flex-col items-center justify-center p-4 drop shadow-lg border bg-white`}
           >
             <div className={`font-bold font-inter`}>{hours}</div>
             <div className={`italic font-inter text-xs`}>Jam</div>
-          </div>
-          <div
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 1 }}
             className={`flex flex-col items-center justify-center p-4 drop shadow-lg border bg-white`}
           >
             <div className={`font-bold font-inter`}>{minutes}</div>
             <div className={`italic font-inter text-xs`}>Menit</div>
-          </div>
-          <div
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 1.5 }}
             className={`flex flex-col items-center justify-center p-4 drop shadow-lg border bg-white`}
           >
             <div className={`font-bold font-inter`}>{seconds}</div>
             <div className={`italic font-inter text-xs`}>Detik</div>
-          </div>
+          </motion.div>
         </div>
-      </div>
+      </motion.div>
 
       {/* Event Location */}
     </div>

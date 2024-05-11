@@ -1,17 +1,9 @@
 "use client";
 
-import Doa from "@/components/layouts/Doa";
 import LandingPage from "@/components/layouts/LandingPage";
-import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import Content from "./content/page";
-import {
-  Pause,
-  Play,
-  VolumeCross,
-  VolumeHigh,
-  VolumeMute,
-} from "iconsax-react";
+import { VolumeCross, VolumeHigh } from "iconsax-react";
 
 export default function Home() {
   const [state, setState] = useState<boolean>(false);

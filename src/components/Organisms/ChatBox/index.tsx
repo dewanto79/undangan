@@ -1,5 +1,6 @@
 import { AddMessage } from "@/database/add-message-dto";
 import Image from "next/image";
+import { useSearchParams } from "next/navigation";
 import { useState } from "react";
 
 interface ChatBoxProps {
@@ -8,14 +9,13 @@ interface ChatBoxProps {
   onSubmit: (_args: AddMessage) => void;
 }
 export default function ChatBox({ isOpen, onClose, onSubmit }: ChatBoxProps) {
+  const params = useSearchParams();
   const [error, setError] = useState<boolean | undefined>();
   const [photoModal, setPhotoModal] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
-  const [selectedAvatar, setSelectedAvatar] =
-    useState<string>(`/images/Avatar/1.png`);
   const [payload, setPayload] = useState<AddMessage>({
     message: "",
-    name: "jerrie",
+    name: params.get("to")!,
     isAttending: false,
     imageId: "1.png",
   });
@@ -31,7 +31,13 @@ export default function ChatBox({ isOpen, onClose, onSubmit }: ChatBoxProps) {
       setError(true);
     } else {
       onSubmit(payload);
-      setLoading(false)
+      setPayload({
+        message: "",
+        name: params.get("to")!,
+        isAttending: false,
+        imageId: "1.png",
+      });
+      setLoading(false);
     }
   };
 

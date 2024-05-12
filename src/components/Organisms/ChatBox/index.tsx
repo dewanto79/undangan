@@ -16,7 +16,7 @@ export default function ChatBox({ isOpen, onClose, onSubmit }: ChatBoxProps) {
   const [payload, setPayload] = useState<AddMessage>({
     message: "",
     name: params.get("to")!,
-    isAttending: false,
+    isAttending: true,
     imageId: "1.png",
   });
 
@@ -42,13 +42,13 @@ export default function ChatBox({ isOpen, onClose, onSubmit }: ChatBoxProps) {
   };
 
   return (
-    <div
+    <button
       className={`fixed inset-0 bg-black bg-opacity-25 backdrop-blur-sm flex items-center justify-center px-1 z-50 ${
         !isOpen && "invisible"
       }`}
       onClick={onClose}
     >
-      <div
+      <button
         className={`bg-[#475569] px-5 py-4 rounded-lg absolute  inset-x-0`}
         onClick={(e) => {
           e.stopPropagation();
@@ -56,11 +56,11 @@ export default function ChatBox({ isOpen, onClose, onSubmit }: ChatBoxProps) {
       >
         {/* row 1 */}
         <div className={`flex gap-2 relative w-full`}>
-          <div
+          <button
             onClick={() => {
               setPhotoModal(true);
             }}
-            className={` bg-stone-200 w-[30%] p-1 rounded-lg flex flex-col justify-center items-center`}
+            className={`bg-stone-200 w-[30%] p-1 rounded-lg flex flex-col justify-center items-center`}
           >
             <div>
               <Image
@@ -74,14 +74,14 @@ export default function ChatBox({ isOpen, onClose, onSubmit }: ChatBoxProps) {
             </div>
             <div className={`text-xs mt-2`}>Ganti Foto</div>
             {photoModal && (
-              <div
+              <button
                 onClick={(e) => {
                   setPhotoModal(false);
                   e.stopPropagation();
                 }}
                 className={`min-h-screen  absolute inset-0  flex items-center justify-center px-1 z-50 w-full`}
               >
-                <div
+                <button
                   onClick={() => {
                     setPhotoModal(false);
                   }}
@@ -112,10 +112,10 @@ export default function ChatBox({ isOpen, onClose, onSubmit }: ChatBoxProps) {
                       )
                     )}
                   </div>
-                </div>
-              </div>
+                </button>
+              </button>
             )}
-          </div>
+          </button>
           <div className={`bg-stone-200 w-[70%] p-2 rounded-lg`}>
             <div
               className={`my-auto flex flex-col items-center justify-center h-full`}
@@ -192,7 +192,7 @@ export default function ChatBox({ isOpen, onClose, onSubmit }: ChatBoxProps) {
         >
           Submit
         </button>
-      </div>
-    </div>
+      </button>
+    </button>
   );
 }

@@ -28,7 +28,7 @@ export default function Carousel({ slides, className }: CarouselProps) {
       else setCurrent(current + 1);
     }, 10000);
     return () => clearInterval(interval);
-  }, [current]);
+  }, [current, slides.length]);
   return (
     <div
       className={`overflow-hidden relative ${className} bg-black bg-opacity-15 backdrop-blur-sm rounded-lg`}

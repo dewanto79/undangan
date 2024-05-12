@@ -16,13 +16,12 @@ export default function Home() {
   };
 
   const pauseAudio = () => {
-    console.log("here");
     myRef.current?.pause();
     setAudioStatus(false);
   };
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between font-montserrat max-w-[375px] mx-auto  ">
+    <main className="flex min-h-screen flex-col items-center justify-between font-montserrat max-w-[375px] mx-auto">
       <div className={`bg-cover h-full snap-y snap-mandatory`}>
         <LandingPage
           className={``}

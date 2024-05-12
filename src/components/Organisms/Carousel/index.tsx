@@ -34,7 +34,7 @@ export default function Carousel({ slides, className }: CarouselProps) {
       className={`overflow-hidden relative ${className} bg-black bg-opacity-15 backdrop-blur-sm rounded-lg`}
     >
       <div
-        className={`flex  transition ease-out duration-500 translate-x-[-${
+        className={`flex transition ease-out duration-500 translate-x-[-${
           current * 100
         }%]  `}
         style={{
@@ -44,7 +44,7 @@ export default function Carousel({ slides, className }: CarouselProps) {
         {slides?.map((rows, index) => (
           <Image
             key={index}
-            className={`w-full object-contain   rounded-lg `}
+            className={`w-full object-contain rounded-lg `}
             src={rows}
             alt=""
             width={500}

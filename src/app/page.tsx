@@ -21,7 +21,7 @@ export default function Home() {
   };
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between font-montserrat max-w-[375px] mx-auto">
+    <main className="flex min-h-screen flex-col items-center justify-between font-montserrat max-w-[480px] mx-auto">
       <div className={`bg-cover h-full snap-y snap-mandatory`}>
         <LandingPage
           className={``}

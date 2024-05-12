@@ -19,17 +19,15 @@ export default function LandingPage({
 }: Readonly<LandingPageProps>) {
   const searchParams = useSearchParams();
 
-  const search = searchParams.get("to");
+  const search = searchParams.get("to") ?? "Nama";
 
   return (
-    <div
-      className={`min-h-screen flex flex-col items-center justify-center text-center gap-12 h-full ${className}`}
-    >
-      <div className="px-16 flex flex-col gap-12">
+    <div className={`min-h-screen h-full text-center ${className}`}>
+      <div className="px-16 py-24 flex flex-col gap-12">
         <motion.div
           initial="hidden"
           whileInView="visible"
-          transition={{ duration: 0.5, ease: "easeIn" }}
+          transition={{ duration: 1, ease: "easeInOut" }}
           variants={{
             visible: { opacity: 1, scale: 1 },
             hidden: { opacity: 0, scale: 0 },
@@ -39,9 +37,13 @@ export default function LandingPage({
           The Wedding Of
         </motion.div>
         <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.2, ease: "easeInOut" }}
+          initial="hidden"
+          whileInView="visible"
+          transition={{ duration: 1, delay: 0.5, ease: "easeInOut" }}
+          variants={{
+            visible: { opacity: 1, y: 0 },
+            hidden: { opacity: 0, y: 20 },
+          }}
           className={`text-4xl font-euphoria`}
         >
           <div>Kiki Deya</div>
@@ -51,26 +53,39 @@ export default function LandingPage({
       </div>
       <div className={`font-montserrat`}>
         <motion.div
-          initial={{ opacity: 0, x: 5 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5, delay: 0.2, ease: "easeInOut" }}
+          initial="hidden"
+          whileInView="visible"
+          transition={{ duration: 0.5, delay: 1, ease: "easeInOut" }}
+          variants={{
+            visible: { opacity: 1, y: 0 },
+            hidden: { opacity: 0, y: 10 },
+          }}
         >
           Special invitation to
         </motion.div>
         <motion.div
-          initial={{ opacity: 0, x: -5 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5, delay: 0.2, ease: "easeInOut" }}
-          className={`font-bold text-lg`}
+          initial="hidden"
+          whileInView="visible"
+          transition={{ duration: 0.5, delay: 1, ease: "easeInOut" }}
+          variants={{
+            visible: { opacity: 1, y: 0 },
+            hidden: { opacity: 0, y: -10 },
+          }}
+          className={`font-bold text-lg max-w-[320px]`}
         >
           {search}
         </motion.div>
       </div>
 
       <motion.div
-        initial={{ opacity: 0, y: 5 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.2, ease: "easeInOut" }}
+        initial="hidden"
+        whileInView="visible"
+        transition={{ duration: 1, delay: 1.2, ease: "easeInOut" }}
+        variants={{
+          visible: { opacity: 1, y: 0 },
+          hidden: { opacity: 0, y: 20 },
+        }}
+        className="my-4"
       >
         <button
           onClick={() => {

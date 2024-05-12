@@ -15,7 +15,7 @@ export default function ChatBox({ isOpen, onClose, onSubmit }: ChatBoxProps) {
   const [loading, setLoading] = useState<boolean>(false);
   const [payload, setPayload] = useState<AddMessage>({
     message: "",
-    name: params.get("to")!,
+    name: params.get("to")! ?? "",
     isAttending: true,
     imageId: "1.png",
   });
@@ -33,7 +33,7 @@ export default function ChatBox({ isOpen, onClose, onSubmit }: ChatBoxProps) {
       onSubmit(payload);
       setPayload({
         message: "",
-        name: params.get("to")!,
+        name: params.get("to")! ?? "Anonim",
         isAttending: false,
         imageId: "1.png",
       });

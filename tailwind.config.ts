@@ -13,7 +13,7 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
 
-        my_bg_image: "url('/images/background.png')",
+        my_bg_image: "url('/images/background.webp')",
         my_bg_image2: "url('/images/background2.png')",
         my_bg_image3: "url('/images/background3.png')",
         my_bg_image4: "url('/images/background4.png')",

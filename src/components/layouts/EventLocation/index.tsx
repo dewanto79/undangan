@@ -10,10 +10,21 @@ interface EventLocationProps {
 export default function EventLocation({ className }: EventLocationProps) {
   const [modal, setModal] = useState<boolean>(false);
   return (
-    <div className={`px-9 py-36 relative ${className} text-center w-full`}>
+    <div
+      className={`px-9 py-36 relative ${className} text-center w-full overflow-hidden`}
+    >
       <motion.div
-        // animate={{ rotate: [-15, 0, 15, 0, -15] }}
-        // transition={{ repeat: Infinity }}
+        animate={{
+          x: [0, "-5px", 0],
+          y: [0, "-5px", 0],
+          skewX: [0, "3deg", 0],
+        }}
+        transition={{
+          duration: 6,
+          repeat: Infinity,
+          repeatType: "reverse",
+          ease: "easeInOut",
+        }}
         className={`absolute top-0 left-0`}
       >
         <Image
@@ -24,13 +35,29 @@ export default function EventLocation({ className }: EventLocationProps) {
           height={152}
         />
       </motion.div>
-      <Image
+      <motion.div
+        animate={{
+          x: [0, "5px", 0],
+          y: [0, "5px", 0],
+          // skewX: [0, "2deg", 0],
+          skewY: [0, "-3deg", 0],
+        }}
+        transition={{
+          duration: 6,
+          repeat: Infinity,
+          repeatType: "reverse",
+          ease: "easeInOut",
+        }}
         className={`absolute bottom-0 right-0`}
-        alt=""
-        src={`/images/bunga-bottom-right.png`}
-        width={233}
-        height={152}
-      />
+      >
+        <Image
+          className={``}
+          alt=""
+          src={`/images/bunga-bottom-right.png`}
+          width={233}
+          height={152}
+        />
+      </motion.div>
       <motion.div
         initial={{ scale: 0 }}
         whileInView={{ scale: 1 }}
@@ -40,7 +67,7 @@ export default function EventLocation({ className }: EventLocationProps) {
       >
         Event Location
       </motion.div>
-      <div className={`mt-6`}>
+      <div className={`my-12`}>
         <motion.div
           initial={{ y: -20, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}

@@ -26,7 +26,7 @@ export default function PasutriCard({
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
-        viewport={{ margin: "-200px" }}
+        viewport={{ margin: "-200px", once: true }}
         transition={{ duration: 1 }}
         className={`w-[215px] h-[317px] ${foto} bg-cover rounded-[50%]`}
       />
@@ -37,7 +37,9 @@ export default function PasutriCard({
         transition={{ duration: 0.5 }}
         className={`flex flex-col gap-3`}
       >
-        <motion.div className={`font-euphoria whitespace-nowrap text-3xl text-center`}>
+        <motion.div
+          className={`font-euphoria whitespace-nowrap text-3xl text-center`}
+        >
           {nama}
         </motion.div>
         <div className={``}>

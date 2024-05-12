@@ -46,17 +46,18 @@ export default function KirimHadiah() {
               className={`text-center w-full px-5 divide-y-2 divide-black divide-opacity-15`}
             >
               <div className={`pb-4`}>
-                <div className={`font-inter `}>
+                <div className={`font-inter mb-2`}>
                   Nomor Rekening Mempelai Pria
                 </div>
                 <div
-                  className={`px-6 py-6 bg-slate-200 w-full text-left rounded-lg shadow-lg`}
+                  className={`px-6 py-6 bg-gradient-to-tl from-gray-500 to-zinc-800 w-full text-left text-gray-200 rounded-lg shadow-lg`}
                 >
                   <Image
                     alt={``}
                     src={`/images/BRI-Logo.png`}
                     width={76}
                     height={29}
+                    className={`mb-12`}
                   />
                   <div className={`mt-2 text-xl`}>000701092500507</div>
                   <div className={`font-montserrat`}>
@@ -68,23 +69,24 @@ export default function KirimHadiah() {
                   onClick={() => {
                     handleClick("000701092500507", "dewanto");
                   }}
-                  className={`bg-sky-200 mt-4 rounded-lg px-4 py-2 active:bg-sky-300 w-56`}
+                  className={`bg-slate-300 mt-4 rounded-lg px-4 py-2 active:bg-slate-400 w-56`}
                 >
                   {rekeningDewanto ? "Tersalin" : "Salin nomor rekening"}
                 </button>
               </div>
               <div className="pb-4">
-                <div className={`font-inter mt-4 `}>
+                <div className={`font-inter mt-4 mb-2`}>
                   Nomor Rekening Mempelai Wanita
                 </div>
                 <div
-                  className={`px-6 py-6 bg-slate-200 w-full text-left rounded-lg shadow-lg`}
+                  className={`px-6 py-6 bg-gradient-to-tl from-blue-300 to-blue-900 w-full text-left rounded-lg shadow-lg text-gray-100`}
                 >
                   <Image
                     alt={``}
                     src={`/images/BCA-Logo.png`}
                     width={76}
                     height={29}
+                    className="mb-12"
                   />
                   <div className={`mt-2 text-xl`}>1801732637</div>
                   <div className={`font-montserrat`}>
@@ -96,7 +98,7 @@ export default function KirimHadiah() {
                   onClick={() => {
                     handleClick("1801732637", "kiki");
                   }}
-                  className={`bg-sky-200 mt-4 rounded-lg px-4 py-2 active:bg-sky-300 w-56`}
+                  className={`bg-slate-300 mt-4 rounded-lg px-4 py-2 active:bg-slate-400 w-56`}
                 >
                   {rekeningKiki ? "Tersalin" : "Salin nomor rekening"}
                 </button>

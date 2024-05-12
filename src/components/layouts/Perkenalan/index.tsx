@@ -11,15 +11,15 @@ export default function Perkenalan({ className }: PerkenalanProps) {
         className={`bg-my_bg_image2 bg-cover text-center flex flex-col items-center justify-center px-11 py-10 ${className}`}
       >
         <motion.div
-          initial={{ opacity: 0, x: -10 }}
+          initial={{ opacity: 0, x: -20 }}
           whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
           className={`font-bold text-xl font-lobster`}
         >
           Assalamu’alaikum wr wb.
         </motion.div>
         <motion.div
-          initial={{ opacity: 0, x: 10 }}
+          initial={{ opacity: 0, x: 20 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5, ease: "easeOut" }}
           className={`font-montserrat text-base mt-3`}

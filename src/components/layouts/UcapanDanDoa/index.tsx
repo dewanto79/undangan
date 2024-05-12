@@ -100,11 +100,9 @@ export default function UcapanDanDoa() {
       });
 
     setManagedData(groupArrays);
-    console.log(groupArrays);
   };
 
   useEffect(() => {
-    console.log(moment(new Date().toISOString()).format("YYYY-MM-DD"));
     getMessage();
   }, []);
   useEffect(() => {
@@ -173,24 +171,23 @@ export default function UcapanDanDoa() {
                       key={index}
                       className={`flex items-start justify-start px-4 py-1 gap-2 `}
                     >
-                      <div>
-                        <Image
-                          className={`w-10 h-10  rounded-[100%] bg-white object-contain ${
-                            rows2.name === rows.data[index - 1]?.name &&
-                            "invisible"
-                          }`}
-                          alt={``}
-                          src={`/images/Avatar/${rows2?.imageId ?? "1.png"}`}
-                          width={40}
-                          height={40}
-                          objectFit={"contain"}
-                        />
-                      </div>
+                      <Image
+                        className={`w-10 h-10  rounded-[100%] bg-white object-contain ${
+                          rows2.name === rows.data[index - 1]?.name &&
+                          "invisible"
+                        }`}
+                        alt={``}
+                        src={`/images/Avatar/${rows2?.imageId ?? "1.png"}`}
+                        width={40}
+                        height={40}
+                        objectFit={"contain"}
+                      />
+
                       {/* chatbox */}
                       <div className={`flex items-end gap-2`}>
                         <div
                           ref={messagesEndRef as any}
-                          className={`bg-green-50 px-4 pt-2 pb-3 rounded-lg rounded-tl-none max-w-44`}
+                          className={`bg-green-50 px-3 pt-2 pb-3 rounded-lg rounded-tl-none flex-1`}
                         >
                           <div className={`flex justify-between gap-4`}>
                             {/* Nama */}

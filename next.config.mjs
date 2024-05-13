@@ -13,6 +13,9 @@ const nextConfig = {
     MESSAGING_SENDER_ID: process.env.MESSAGING_SENDER_ID,
     APP_ID: process.env.APP_ID,
   },
+  images: {
+    unoptimized: true,
+  },
 };
 
 export default nextConfig;

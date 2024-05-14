@@ -4,7 +4,7 @@ import dotenv from "dotenv";
 dotenv.config();
 
 const nextConfig = {
-  reactStrictMode: false,
+  // reactStrictMode: false,
   env: {
     API_KEY: process.env.API_KEY,
     AUTH_DOMAIN: process.env.AUTH_DOMAIN,

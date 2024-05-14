@@ -9,7 +9,6 @@ const data = [
   },
   {
     id: 2,
-    
     name: "Jerrie Jayadi",
     instagram: "https://www.instagram.com/t_jerriejayadi/",
     website: "https://my-portfolio-next-jet.vercel.app/en",

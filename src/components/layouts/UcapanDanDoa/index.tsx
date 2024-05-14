@@ -135,7 +135,7 @@ export default function UcapanDanDoa() {
               <Image
                 className={`rounded-full bg-white w-10 h-10`}
                 alt=""
-                src={`/images/UcapanDanDoaImage.png`}
+                src={`/image/UcapanDanDoaImage.png`}
                 width={300}
                 height={300}
               />
@@ -148,7 +148,7 @@ export default function UcapanDanDoa() {
 
           {/* Body */}
           <div
-            className={`flex flex-col h-96 items-start justify-start bg-slate-200 overflow-scroll py-2`}
+            className={`flex flex-col h-96 items-start justify-start bg-slate-200 overflow-y-scroll py-2`}
           >
             {managedData?.map((rows, index) => (
               <div key={index} className={`flex flex-col w-full`}>
@@ -177,7 +177,7 @@ export default function UcapanDanDoa() {
                           "invisible"
                         }`}
                         alt={``}
-                        src={`/images/Avatar/${rows2?.imageId ?? "1.png"}`}
+                        src={`/image/Avatar/${rows2?.imageId ?? "1.png"}`}
                         width={40}
                         height={40}
                         objectFit={"contain"}

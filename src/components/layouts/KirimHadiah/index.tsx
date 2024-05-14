@@ -54,7 +54,7 @@ export default function KirimHadiah() {
                 >
                   <Image
                     alt={``}
-                    src={`/images/BRI-Logo.png`}
+                    src={`/image/BRI-Logo.png`}
                     width={76}
                     height={29}
                     className={`mb-12`}
@@ -83,7 +83,7 @@ export default function KirimHadiah() {
                 >
                   <Image
                     alt={``}
-                    src={`/images/BCA-Logo.png`}
+                    src={`/image/BCA-Logo.png`}
                     width={76}
                     height={29}
                     className="mb-12"

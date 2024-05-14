@@ -18,11 +18,11 @@ export default function GaleriFoto() {
       <Carousel
         className={`mt-7`}
         slides={[
-          `/images/PreWedding/1.jpg`,
-          `/images/PreWedding/2.jpg`,
-          `/images/PreWedding/3.jpg`,
-          `/images/PreWedding/4.jpg`,
-          `/images/PreWedding/5.jpg`,
+          `/image/PreWedding/1.jpg`,
+          `/image/PreWedding/2.jpg`,
+          `/image/PreWedding/3.jpg`,
+          `/image/PreWedding/4.jpg`,
+          `/image/PreWedding/5.jpg`,
         ]}
       />
     </div>

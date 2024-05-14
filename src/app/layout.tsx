@@ -43,13 +43,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
-      <head ></head>
       <Suspense>
         <body
           className={`${inter.variable} ${lobster_two.variable} ${euphoria_script.variable} ${montserrat.variable} bg-white text-black `}
         >
           <main
-            className={`bg-my_bg_image bg-fixed max-w-[480px] mx-auto bg-cover `}
+            className={`bg-my_bg_image bg-fixed max-w-[480px] w-full mx-auto bg-cover `}
           >
             {children}
           </main>

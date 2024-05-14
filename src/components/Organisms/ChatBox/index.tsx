@@ -67,7 +67,7 @@ export default function ChatBox({ isOpen, onClose, onSubmit }: ChatBoxProps) {
                 className={`w-16 h-16  rounded-[100%] bg-white object-contain`}
                 alt=""
                 objectFit={"contain"}
-                src={`/images/Avatar/${payload.imageId}`}
+                src={`/image/Avatar/${payload.imageId}`}
                 width={100}
                 height={136}
               />
@@ -105,7 +105,7 @@ export default function ChatBox({ isOpen, onClose, onSubmit }: ChatBoxProps) {
                           className={`object-contain rounded-full bg-white w-10 h-10`}
                           objectFit="cover"
                           alt={``}
-                          src={`/images/Avatar/${rows}.png`}
+                          src={`/image/Avatar/${rows}.png`}
                           width={30}
                           height={30}
                         />

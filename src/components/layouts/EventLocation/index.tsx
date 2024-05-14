@@ -30,7 +30,7 @@ export default function EventLocation({ className }: EventLocationProps) {
         <Image
           className={``}
           alt=""
-          src={`/images/bnga-top-left.png`}
+          src={`/image/bnga-top-left.png`}
           width={233}
           height={152}
         />
@@ -53,7 +53,7 @@ export default function EventLocation({ className }: EventLocationProps) {
         <Image
           className={``}
           alt=""
-          src={`/images/bunga-bottom-right.png`}
+          src={`/image/bunga-bottom-right.png`}
           width={233}
           height={152}
         />

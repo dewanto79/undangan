@@ -32,7 +32,7 @@ export default function Penutup() {
         <Image
           className={`mx-auto`}
           alt={``}
-          src={`/images/couple-cat 1.png`}
+          src={`/image/couple-cat 1.png`}
           width={150}
           height={250}
         />

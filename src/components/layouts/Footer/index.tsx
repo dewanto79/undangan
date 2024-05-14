@@ -4,14 +4,15 @@ import Link from "next/link";
 const data = [
   {
     id: 1,
-    name: "Jerrie Jayadi",
-    instagram: "https://www.instagram.com/t_jerriejayadi/",
-    website: "https://my-portfolio-next-jet.vercel.app/en",
+    name: "Dewanto Surya Setyoadji",
+    instagram: "https://www.instagram.com/dsetyoadji/",
   },
   {
     id: 2,
-    name: "Dewanto Surya Setyoadji",
-    instagram: "https://www.instagram.com/dsetyoadji/",
+    
+    name: "Jerrie Jayadi",
+    instagram: "https://www.instagram.com/t_jerriejayadi/",
+    website: "https://my-portfolio-next-jet.vercel.app/en",
   },
   {
     id: 3,

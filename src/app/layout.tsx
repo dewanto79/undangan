@@ -32,8 +32,32 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://kiki-deya.dewantosurya.com"),
   title: "Wedding of Dewan and Kiki",
-  description: "Wedding of Dewan and Kiki",
+  description: "Wedding of Dewanto Surya and Kiki Deya",
+  openGraph: {
+    type: "website",
+    title: "Wedding of Dewan and Kiki",
+    description: "Wedding of Dewanto Surya and Kiki Deya",
+    siteName: "Wedding of Dewan and Kiki",
+    images: {
+      url: "/image/PreWedding/4.jpg",
+      alt: "Dewan dan Kiki",
+      type: "jpg",
+      width: 540,
+      height: 884,
+    },
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: {
+      url: "/image/PreWedding/4.jpg",
+      alt: "Dewan dan Kiki",
+      type: "jpg",
+      width: 540,
+      height: 884,
+    },
+  },
 };
 
 export default function RootLayout({

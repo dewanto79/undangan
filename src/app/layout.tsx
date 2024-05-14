@@ -35,26 +35,17 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://kiki-deya.dewantosurya.com"),
   title: "Wedding of Dewan and Kiki",
   description: "Wedding of Dewanto Surya and Kiki Deya",
+  icons: "/favicon.ico",
   openGraph: {
     type: "website",
     title: "Wedding of Dewan and Kiki",
     description: "Wedding of Dewanto Surya and Kiki Deya",
     siteName: "Wedding of Dewan and Kiki",
-    images: {
-      url: "/image/PreWedding/4.jpg",
-      alt: "Dewan dan Kiki",
-      width: 540,
-      height: 884,
-    },
+    images: "/image/PreWedding/4.jpg",
   },
   twitter: {
     card: "summary_large_image",
-    images: {
-      url: "/image/PreWedding/4.jpg",
-      alt: "Dewan dan Kiki",
-      width: 540,
-      height: 884,
-    },
+    images: "/image/PreWedding/4.jpg",
   },
 };
 

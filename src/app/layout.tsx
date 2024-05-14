@@ -35,14 +35,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://kiki-deya.dewantosurya.com"),
   title: "Wedding of Dewan and Kiki",
   description: "Wedding of Dewanto Surya and Kiki Deya",
-  icons: [
-    {
-      rel: "icon",
-      url: "/favicon.ico",
-      type: "image/x-icon",
-      sizes: "216x216",
-    },
-  ],
+  icons: "/favicon.ico",
   openGraph: {
     type: "website",
     title: "Wedding of Dewan and Kiki",

@@ -43,7 +43,6 @@ export const metadata: Metadata = {
     images: {
       url: "/image/PreWedding/4.jpg",
       alt: "Dewan dan Kiki",
-      type: "jpg",
       width: 540,
       height: 884,
     },
@@ -53,7 +52,6 @@ export const metadata: Metadata = {
     images: {
       url: "/image/PreWedding/4.jpg",
       alt: "Dewan dan Kiki",
-      type: "jpg",
       width: 540,
       height: 884,
     },

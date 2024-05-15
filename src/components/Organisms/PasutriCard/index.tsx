@@ -26,14 +26,14 @@ export default function PasutriCard({
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
-        viewport={{ margin: "-200px", once: true }}
+        viewport={{ margin: "-50px", once: true }}
         transition={{ duration: 1 }}
         className={`w-[215px] h-[317px] ${foto} bg-cover rounded-[50%]`}
       />
       <motion.div
         initial={{ opacity: 0, y: -20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ margin: "-200px" }}
+        viewport={{ margin: "-50px" }}
         transition={{ duration: 0.5 }}
         className={`flex flex-col gap-3`}
       >

@@ -71,7 +71,7 @@ export default function WeddingEvent({ className }: WeddingEventProps) {
           initial={{ opacity: 0, x: -20 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5, ease: "easeOut" }}
-          viewport={{ margin: "-200px", once: true }}
+          viewport={{ margin: "-50px", once: true }}
         >
           <div className={`font-lobster text-4xl`}>Wedding Event</div>
           <div className={`mt-6`}>

@@ -115,7 +115,7 @@ export default function UcapanDanDoa() {
         initial={{ opacity: 0, y: -20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        // viewport={{ margin: "-200px" }}
+        // viewport={{ margin: "-50px" }}
         className={`text-4xl mb-8 text-center font-lobster`}
       >
         Ucapan & Doa
@@ -124,7 +124,7 @@ export default function UcapanDanDoa() {
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.5 }}
-        viewport={{ margin: "-200px" }}
+        viewport={{ margin: "-50px" }}
       >
         <div className={`rounded-lg`}>
           {/* Header */}

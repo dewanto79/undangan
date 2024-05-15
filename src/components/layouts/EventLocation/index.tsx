@@ -61,7 +61,7 @@ export default function EventLocation({ className }: EventLocationProps) {
       <motion.div
         initial={{ scale: 0 }}
         whileInView={{ scale: 1 }}
-        viewport={{ margin: "-50px", once: true }}
+        viewport={{ margin: "-50px 0px -10px 0px", once: true }}
         transition={{ duration: 0.5, ease: "easeOut" }}
         className={`font-lobster text-4xl`}
       >

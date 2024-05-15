@@ -9,7 +9,7 @@ export default function GaleriFoto() {
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ margin: "-200px", once: true }}
+        viewport={{ margin: "-50px 0px -10px 0px", once: true }}
         transition={{ duration: 0.5 }}
         className={`font-lobster text-4xl`}
       >

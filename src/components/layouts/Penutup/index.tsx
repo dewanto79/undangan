@@ -7,7 +7,7 @@ export default function Penutup() {
       <motion.div
         initial={{ opacity: 0, y: -20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ margin: "-200px" }}
+        viewport={{ margin: "-50px 0px -10px 0px" }}
         transition={{ duration: 0.5, ease: "easeOut" }}
         className={`font-montserrat`}
       >

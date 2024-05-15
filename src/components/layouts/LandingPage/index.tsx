@@ -46,9 +46,9 @@ export default function LandingPage({
           }}
           className={`text-4xl font-euphoria`}
         >
-          <div>Kiki Deya</div>
-          <div>&</div>
           <div>Dewanto Surya</div>
+          <div>&</div>
+          <div>Kiki Deya</div>
         </motion.div>
       </div>
       <div className={`font-montserrat`}>

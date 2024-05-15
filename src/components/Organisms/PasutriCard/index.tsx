@@ -33,7 +33,7 @@ export default function PasutriCard({
       <motion.div
         initial={{ opacity: 0, y: -20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ margin: "-50px 0px" }}
+        viewport={{ margin: "-50px 0px -10px 0px" }}
         transition={{ duration: 0.5 }}
         className={`flex flex-col gap-3`}
       >

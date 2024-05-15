@@ -71,7 +71,7 @@ export default function WeddingEvent({ className }: WeddingEventProps) {
           initial={{ opacity: 0, x: -20 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5, ease: "easeOut" }}
-          viewport={{ margin: "-50px 0px", once: true }}
+          viewport={{ margin: "-50px 0px -10px 0px", once: true }}
         >
           <div className={`font-lobster text-4xl`}>Wedding Event</div>
           <div className={`mt-6`}>
@@ -86,7 +86,7 @@ export default function WeddingEvent({ className }: WeddingEventProps) {
         <motion.div
           initial={{ scale: 0 }}
           whileInView={{ scale: 1 }}
-          viewport={{ margin: "-50px 0px" }}
+          viewport={{ margin: "-50px 0px -10px 0px" }}
           transition={{ duration: 1, ease: "easeOut" }}
           className={`mt-4 font-montserrat`}
         >
@@ -99,7 +99,7 @@ export default function WeddingEvent({ className }: WeddingEventProps) {
             initial={{ height: "0px" }}
             whileInView={{ height: "128px" }}
             transition={{ duration: 0.5, ease: "easeOut" }}
-            viewport={{ margin: "-50px 0px" }}
+            viewport={{ margin: "-50px 0px -10px 0px" }}
             className={`h-32 w-[3px] bg-black mx-auto `}
           />
         </div>

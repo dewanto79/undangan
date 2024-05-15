@@ -123,7 +123,7 @@ export default function UcapanDanDoa() {
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.5 }}
-        viewport={{ margin: "-50px 0px" }}
+        viewport={{ margin: "-50px 0px -10px 0px" }}
       >
         <div className={`rounded-lg`}>
           {/* Header */}

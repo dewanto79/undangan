@@ -15,9 +15,9 @@ export default function ChatBox({ isOpen, onClose, onSubmit }: ChatBoxProps) {
   const [loading, setLoading] = useState<boolean>(false);
   const [payload, setPayload] = useState<AddMessage>({
     message: "",
-    name: params.get("to")! ?? "",
+    name: "",
     isAttending: true,
-    imageId: "1.png",
+    imageId: `${Math.floor(Math.random() * 16) + 1}.png`,
   });
 
   const handleChange = (key: keyof AddMessage, value: string) => {
@@ -64,7 +64,7 @@ export default function ChatBox({ isOpen, onClose, onSubmit }: ChatBoxProps) {
           >
             <div>
               <Image
-                className={`w-16 h-16  rounded-[100%] bg-white object-contain`}
+                className={`w-20 h-20  rounded-[100%] bg-white object-contain`}
                 alt=""
                 objectFit={"contain"}
                 src={`/image/Avatar/${payload.imageId}`}
@@ -79,13 +79,13 @@ export default function ChatBox({ isOpen, onClose, onSubmit }: ChatBoxProps) {
                   setPhotoModal(false);
                   e.stopPropagation();
                 }}
-                className={`min-h-screen  absolute inset-0  flex items-center justify-center px-1 z-50 w-full`}
+                className={`min-h-screen absolute inset-0 flex items-center justify-center px-1 z-50 w-full`}
               >
                 <button
                   onClick={() => {
                     setPhotoModal(false);
                   }}
-                  className={`absolute top-[104px] left-0 mx-auto my-auto bg-stone-200 flex flex-col p-2 w-full rounded-lg `}
+                  className={`absolute top-[120px] left-0 mx-auto my-auto bg-stone-200 flex flex-col p-2 w-full rounded-lg `}
                 >
                   <div className={`text-xs  font-inter text-[#7B7B7B]`}>
                     Pilih foto profil
@@ -163,7 +163,7 @@ export default function ChatBox({ isOpen, onClose, onSubmit }: ChatBoxProps) {
               className={`bg-transparent w-full ${
                 error && payload.name === "" && "border-2 border-red-400"
               } rounded-sm focus:outline-none`}
-              defaultValue={`Jerrie`}
+              placeholder={`Tuliskan nama kamu disini`}
               onChange={(e) => {
                 handleChange(e.target.name as keyof AddMessage, e.target.value);
               }}

@@ -62,10 +62,10 @@ export default function WeddingEvent({ className }: WeddingEventProps) {
   }, [seconds]);
 
   return (
-    <div className={`text-center p-4`}>
+    <div className={`text-center py-8 px-4`}>
       {/* Wedding Event */}
       <motion.div
-        className={`bg-white bg-opacity-50 rounded-lg py-6 px-4 w-full `}
+        className={`bg-white bg-opacity-50 rounded-lg py-12 px-4 w-full `}
       >
         <motion.div
           initial={{ opacity: 0, x: -20 }}

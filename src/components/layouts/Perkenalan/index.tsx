@@ -14,7 +14,7 @@ export default function Perkenalan({ className }: PerkenalanProps) {
           initial={{ opacity: 0, x: -20 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5, ease: "easeOut" }}
-          className={`font-bold text-xl font-lobster`}
+          className={`font-bold text-2xl font-lobster`}
         >
           Assalamu’alaikum wr wb.
         </motion.div>
@@ -29,7 +29,7 @@ export default function Perkenalan({ className }: PerkenalanProps) {
           acara pernikahan kami
         </motion.div>
       </div>
-      <div className={`bg-my_bg_image4  py-14 flex flex-col `}>
+      <div className={`py-14 flex flex-col bg-white bg-opacity-15 backdrop-blur-sm`}>
         <PasutriCard
           namaAyah={"Bapak Ariyanto"}
           namaIbu={"Ibu Lili Irawati"}

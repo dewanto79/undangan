@@ -11,7 +11,7 @@ export default function EventLocation({ className }: EventLocationProps) {
   const [modal, setModal] = useState<boolean>(false);
   return (
     <div
-      className={`px-9 py-36 relative ${className} text-center w-full overflow-hidden`}
+      className={`px-9 py-20 relative ${className} text-center w-full overflow-hidden`}
     >
       <motion.div
         animate={{
@@ -25,7 +25,7 @@ export default function EventLocation({ className }: EventLocationProps) {
           repeatType: "reverse",
           ease: "easeInOut",
         }}
-        className={`absolute top-0 left-0`}
+        className={`absolute top-0 left-0 z-10`}
       >
         <Image
           className={``}
@@ -48,7 +48,7 @@ export default function EventLocation({ className }: EventLocationProps) {
           repeatType: "reverse",
           ease: "easeInOut",
         }}
-        className={`absolute bottom-0 right-0`}
+        className={`absolute bottom-0 right-0 z-20`}
       >
         <Image
           className={``}
@@ -58,47 +58,49 @@ export default function EventLocation({ className }: EventLocationProps) {
           height={152}
         />
       </motion.div>
-      <motion.div
-        initial={{ scale: 0 }}
-        whileInView={{ scale: 1 }}
-        viewport={{ margin: "-50px 0px -10px 0px", once: true }}
-        transition={{ duration: 0.5, ease: "easeOut" }}
-        className={`font-lobster text-4xl`}
-      >
-        Event Location
-      </motion.div>
-      <div className={`my-12`}>
+      <div className="bg-white bg-opacity-50 shadow-xl drop-shadow-xl rounded-lg py-12 px-4 w-full">
         <motion.div
-          initial={{ y: -20, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
+          initial={{ scale: 0 }}
+          whileInView={{ scale: 1 }}
+          viewport={{ margin: "-50px 0px -10px 0px", once: true }}
           transition={{ duration: 0.5, ease: "easeOut" }}
-          className={`text-xl font-bold`}
+          className={`font-lobster text-4xl`}
         >
-          Rumah Mempelai Wanita
+          Event Location
         </motion.div>
+        <div className={`my-8`}>
+          <motion.div
+            initial={{ y: -20, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+            className={`text-xl font-bold`}
+          >
+            Rumah Mempelai Wanita
+          </motion.div>
+          <motion.div
+            initial={{ y: 20, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+            className={`px-3 mt-4 font-montserrat`}
+          >
+            Dusun Temurejo RT 01 RW 05 Desa Kembiritan, Kec. Genteng
+          </motion.div>
+        </div>
         <motion.div
-          initial={{ y: 20, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
+          initial={{ scale: 0 }}
+          whileInView={{ scale: 1 }}
           transition={{ duration: 0.5, ease: "easeOut" }}
-          className={`px-3 mt-4 font-montserrat`}
         >
-          Dusun Temurejo RT 01 RW 05 Desa Kembiritan, Kec. Genteng
+          <button
+            onClick={() => {
+              setModal(true);
+            }}
+            className={`bg-sky-200 px-6 py-2 rounded-lg active:bg-sky-300 transform transition-all duration-100 mt-7 text-m shadow-lg`}
+          >
+            Lihat Peta
+          </button>
         </motion.div>
       </div>
-      <motion.div
-        initial={{ scale: 0 }}
-        whileInView={{ scale: 1 }}
-        transition={{ duration: 0.5, ease: "easeOut" }}
-      >
-        <button
-          onClick={() => {
-            setModal(true);
-          }}
-          className={`bg-sky-200 px-6 py-2 rounded-lg active:bg-sky-300 transform transition-all duration-100 mt-7 text-m shadow-lg`}
-        >
-          Lihat Peta
-        </button>
-      </motion.div>
       {modal && (
         <motion.div
           initial="hidden"

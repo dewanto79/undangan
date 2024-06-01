@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     title: "Wedding of Dewan and Kiki",
     description: "Wedding of Dewanto Surya and Kiki Deya",
     siteName: "Wedding of Dewan and Kiki",
-    images: { url: "/image/web-holder.jpg", width: 300, height: 300 },
+    images: { url: "/image/web-holder.jpg", width: 1200, height: 624 },
   },
   twitter: {
     card: "summary_large_image",

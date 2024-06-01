@@ -13,9 +13,9 @@ import { useEffect, useRef } from "react";
 
 export default function Content() {
   const ref = useRef<HTMLDivElement>(null);
-  useEffect(()=>{
-    ref.current?.scrollIntoView()
-  },[])
+  useEffect(() => {
+    ref.current?.scrollIntoView();
+  }, []);
   return (
     <div id={"content"}>
       <section ref={ref}>
@@ -28,7 +28,7 @@ export default function Content() {
         <WeddingEvent />
       </section>
       <section>
-        <EventLocation className={`bg-white bg-opacity-10 backdrop-blur-sm`}/>
+        <EventLocation className={``} />
       </section>
       <section>
         <GaleriFoto />

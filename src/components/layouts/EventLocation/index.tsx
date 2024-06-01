@@ -11,13 +11,58 @@ export default function EventLocation({ className }: EventLocationProps) {
   const [modal, setModal] = useState<boolean>(false);
   return (
     <div
-      className={`px-9 py-20 relative ${className} text-center w-full overflow-hidden`}
+      className={`px-9 pt-20 pb-28 relative ${className} text-center w-full overflow-hidden`}
     >
+      <motion.div
+        animate={{
+          x: [0, "5px", 0],
+          y: [0, "5px", 0],
+          skewX: [0, "-3deg", 0],
+        }}
+        transition={{
+          duration: 6,
+          repeat: Infinity,
+          repeatType: "reverse",
+          ease: "easeInOut",
+        }}
+        className={`absolute bottom-0 right-0 z-10`}
+      >
+        <Image
+          className={``}
+          alt=""
+          src={`/image/bnga-top-left.png`}
+          width={160}
+          height={104}
+        />
+      </motion.div>
+      <motion.div
+        animate={{
+          x: [0, "-5px", 0],
+          y: [0, "5px", 0],
+          skewX: [0, "3deg", 0],
+        }}
+        transition={{
+          duration: 6,
+          repeat: Infinity,
+          repeatType: "reverse",
+          ease: "easeInOut",
+        }}
+        className={`absolute bottom-0 left-0 z-10`}
+      >
+        <Image
+          className={``}
+          alt=""
+          src={`/image/bnga-top-left-2.png`}
+          width={160}
+          height={104}
+        />
+      </motion.div>
       <motion.div
         animate={{
           x: [0, "-5px", 0],
           y: [0, "-5px", 0],
-          skewX: [0, "3deg", 0],
+          // skewX: [0, "2deg", 0],
+          skewY: [0, "3deg", 0],
         }}
         transition={{
           duration: 6,
@@ -30,32 +75,9 @@ export default function EventLocation({ className }: EventLocationProps) {
         <Image
           className={``}
           alt=""
-          src={`/image/bnga-top-left.png`}
-          width={233}
-          height={152}
-        />
-      </motion.div>
-      <motion.div
-        animate={{
-          x: [0, "5px", 0],
-          y: [0, "5px", 0],
-          // skewX: [0, "2deg", 0],
-          skewY: [0, "-3deg", 0],
-        }}
-        transition={{
-          duration: 6,
-          repeat: Infinity,
-          repeatType: "reverse",
-          ease: "easeInOut",
-        }}
-        className={`absolute bottom-0 right-0 z-20`}
-      >
-        <Image
-          className={``}
-          alt=""
           src={`/image/bunga-bottom-right.png`}
-          width={233}
-          height={152}
+          width={280}
+          height={182}
         />
       </motion.div>
       <div className="bg-white bg-opacity-50 shadow-xl drop-shadow-xl rounded-lg py-12 px-4 w-full">

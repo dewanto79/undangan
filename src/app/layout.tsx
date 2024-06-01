@@ -34,7 +34,7 @@ const montserrat = Montserrat({
 export const metadata: Metadata = {
   metadataBase: new URL("https://kiki-deya.dewantosurya.com"),
   title: "Wedding of Dewan and Kiki",
-  description: "Wedding of Dewanto Surya and Kiki Deya",
+  description: "Undangan pernikahan Dewanto Surya and Kiki Deya",
   icons: "/favicon.ico",
   openGraph: {
     type: "website",
